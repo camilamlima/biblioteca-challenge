@@ -3,7 +3,10 @@ const bodyParser = require('body-parser');
 
 // Configuring the database
 const dbConfig = require('./config/database.config.js');
+const appConfig = require('./config/app.config.js');
 const mongoose = require('mongoose');
+
+
 
 // create express app
 const app = express();
@@ -26,10 +29,30 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    res.header('Access-Control-Expose-Headers', 'Content-Range');
+
+    //intercepts OPTIONS method
+    if ('OPTIONS' === req.method) {
+      //respond with 200
+      res.send(200);
+    }
+    else {
+    //move on
+      next();
+    }
+});
+
 // define a simple HOME route
 app.get('/', (req, res) => {
     res.json({"message": "Welcome to ReviewsBiblioteca application. Backend to register User, Books and reviews of Bibioteca."});
 });
+
+// Require Authentication routes
+require('./app/routes/authentication.routes.js')(app);
 
 // Require Users routes
 require('./app/routes/user.routes.js')(app);
@@ -46,7 +69,7 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-app.set('port', process.env.PORT || 3000);
+app.set('port', appConfig.port);
 
 // listen for requests
 app.listen(app.get('port'), function() {

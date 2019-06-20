@@ -4,22 +4,22 @@ const Book = require('../models/book.model.js');
 exports.create = (req, res) => {
 
     // Validate request
-    if(!req.body.bookname) {
+    if(!req.body.title) {
         return res.status(400).send({
-            message: "Book bookname can not be empty"
+            message: "Book title can not be empty"
         });
     }
 
     // Create a Book
     const book = new Book({
-        name: req.body.name, 
-        bookname: req.body.bookname
+        title: req.body.title, 
+        description: req.body.description
     });
 
     // Save Book in the database
     book.save()
-    .then(data => {
-        res.send(data);
+    .then(book => {
+        res.send({ ...book._doc, id: book._id });
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while creating the Book."
@@ -34,7 +34,8 @@ exports.findAll = (req, res) => {
     
     Book.find()
     .then(books => {
-        res.send(books);
+        res.header('Content-Range', books.length);    
+        res.send(books.map(book => ({ ...book._doc, id: book._id })));
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while retrieving books."
@@ -52,7 +53,8 @@ exports.findOne = (req, res) => {
                 message: "Book not found with id " + req.params.bookId
             });            
         }
-        res.send(book);
+        res.header('Content-Range', 1);    
+        res.send({ ...book._doc, id: book._id });
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
@@ -69,16 +71,16 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
     
     // Validate Request
-    if(!req.body.bookname) {
+    if(!req.body.title) {
         return res.status(400).send({
-            message: "Book bookname can not be empty"
+            message: "Book title can not be empty"
         });
     }
 
     // Find book and update it with the request body
     Book.findByIdAndUpdate(req.params.bookId, {
-        name: req.body.name,
-        bookname: req.body.bookname
+        title: req.body.title,
+        description: req.body.description
     }, {new: true})
     .then(book => {
         if(!book) {
@@ -86,7 +88,7 @@ exports.update = (req, res) => {
                 message: "Book not found with id " + req.params.bookId
             });
         }
-        res.send(book);
+        res.send({ ...book._doc, id: book._id });
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({

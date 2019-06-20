@@ -25,8 +25,8 @@ exports.create = (req, res) => {
 
     // Save User in the database
     user.save()
-    .then(data => {
-        res.send(data);
+    .then(user => {
+        res.send({ ...user._doc, id: user._id });
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while creating the User."
@@ -39,7 +39,10 @@ exports.findAll = (req, res) => {
     
     User.find()
     .then(users => {
-        res.send(users);
+        res.header('Content-Range', users.length);    
+        res.send(
+            users.map(user => ({ ...user._doc, id: user._id }))
+        );
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while retrieving users."
@@ -57,7 +60,8 @@ exports.findOne = (req, res) => {
                 message: "User not found with id " + req.params.userId
             });            
         }
-        res.send(user);
+        res.header('Content-Range', 1);    
+        res.send({ ...user._doc, id: user._id });
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
@@ -98,7 +102,7 @@ exports.update = (req, res) => {
                 message: "User not found with id " + req.params.userId
             });
         }
-        res.send(user);
+        res.send({ ...user._doc, id: user._id });
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
