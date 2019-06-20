@@ -1,0 +1,24 @@
+body{
+    margin:0;
+}
+
+.navbar{
+    background:#FFDEAD !important;
+    color: #A0522D;
+     text-decoration: none;
+    font-family: 'Pacifico', cursive;
+    display:flex;
+}
+
+.rounded{
+    padding-left:20px;
+    padding-top: 35px;
+}
+
+.marketing_brand{
+  font-family: 'Pacifico', cursive;
+  font-size: 1.2em;
+  margin: 0;
+    text-align:center;
+    display:flex;
+}
