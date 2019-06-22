@@ -2,9 +2,9 @@
 
 Projeto utilizando css e react
 
-## Scripts disponiveis
+## Scripts disponíveis
 
-Este projeto possui os script abaixo:
+Este projeto possui os scripts abaixo:
 
 ### `npm install`
 
@@ -32,3 +32,9 @@ Para configurar a url da API de comunicação utilize a variavel de ambiente `RE
 $ REACT_APP_APIBACKEND=http://ip-to-server.com:3000 npm start
 ```
 
+## Admin 
+Para acessar o `/admin` utilize o usuário padrão
+
+**username**: admin
+
+**senha**: 1234
