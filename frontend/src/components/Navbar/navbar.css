@@ -5,20 +5,20 @@ body{
 .navbar{
     background:#FFDEAD !important;
     color: #A0522D;
-     text-decoration: none;
     font-family: 'Pacifico', cursive;
-    display:flex;
+    display: flex;
 }
 
 .rounded{
-    padding-left:20px;
-    padding-top: 35px;
+    padding: 25px;
+    height: 80px;
+}
+
+.title{
+    margin: auto;
 }
 
 .marketing_brand{
-  font-family: 'Pacifico', cursive;
-  font-size: 1.2em;
-  margin: 0;
-    text-align:center;
-    display:flex;
+  font-size: 3em;
+  text-align:center;
 }

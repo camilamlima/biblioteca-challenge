@@ -1,6 +1,6 @@
 import React from 'react'
 import {Component} from 'react'
-import logo from './logo.png'
+import logo from './logo.gif'
 import './navbar.css'
 
 class Navbar extends Component{
@@ -8,8 +8,10 @@ class Navbar extends Component{
         return (
            <header>
                 <div className="navbar">
-                 <img className="rounded" src={logo} width="45" height="45" />               
+                 <img className="rounded" src={logo}/>     
+                 <div className="title">
                     <h1 className="marketing_brand">BookSuggestion</h1>
+                 </div>
                 </div>    
            </header>        
         )

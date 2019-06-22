@@ -1,18 +1,20 @@
 .jumbotron{
-    background-image: url("estante.png");
-    height: 100%;
+    background: url("layout.jpg") center no-repeat;
     height: 1000px;
     width: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
+.container{
+    padding-top: 200px;
+}
+
 
 .brand_book{
     color: #FFDEAD;
     text-align: center;
     font-family: 'Pacifico', cursive;
     font-size: 25px;
-    padding: 15px;
+    padding: 35px;
     margin: 0;
 }
 
@@ -21,10 +23,26 @@
     text-align: center;
     font-family: 'Pacifico', cursive;
     font-size: 22px;
-    padding-bottom:45px;
+    padding-bottom: 90px;
 }
 
-.form{
+.form-online{
     text-align: center;
+    padding:20px;
+}
+.form-control{
+    padding:15px;
+    border-radius: 10px;
+    width: 35%;
     
 }
+.btn{
+    margin:30px;
+    text-align: center;
+    padding:15px;
+    border-radius: 10px;
+    background:#FFDEAD;
+    color: #A0522D;
+    font-weight: bold;
+}
+

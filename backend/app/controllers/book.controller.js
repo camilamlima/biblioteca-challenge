@@ -98,7 +98,7 @@ exports.update = (req, res) => {
         return res.status(500).send({
             message: "Error updating book with id " + req.params.bookId
         });
-    });''
+    });
 };
 
 // Delete a Book with the specified bookId in the request

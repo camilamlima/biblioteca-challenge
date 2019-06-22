@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 export * from './Admin';
 export * from './Home';
+export * from './Review';
 
 export class NotFound extends Component {
   

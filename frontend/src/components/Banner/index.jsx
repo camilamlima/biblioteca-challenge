@@ -1,6 +1,6 @@
 import React from 'react'
 import {Component} from 'react'
-import estante from './estante.png'
+import layout from './layout.jpg'
 import './Banner.css'
 
 class Banner extends Component{
@@ -10,14 +10,11 @@ class Banner extends Component{
         <section className="jumbotron text-center">
             <div className="container">
             	<h1 className="brand_book">BookSuggestion</h1>
-            	<div className="search_book">Pesquise os principais livros e veja suas avaliações com críticas e sugestões dele</div>
-                
-            	<nav class="navbar navbar-light bg-light">
-					<form class="form-inline">
-					<input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search"/>
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            	<div className="search_book">Para avaliar os seus livros digite seu usuário</div>
+					<form class="form-online">
+					<input class="form-control mr-sm-2" type="search" placeholder="username" aria-label="Search"/>
+					<button type="submit" class="btn btn-outline-danger">Buscar</button>
 				</form>
-				</nav>
 				</div>
         </section>
         )

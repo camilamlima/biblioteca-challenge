@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, Switch } from 'react-router-dom'
 import { history } from './helpers';
-import {AdminPage, HomePage, NotFound} from './pages';
+import {AdminPage, HomePage, ReviewPage, NotFound} from './pages';
 import * as serviceWorker from './serviceWorker';
 
 class App extends React.Component {
@@ -14,6 +14,7 @@ class App extends React.Component {
               
               <Route exact path='/' component={HomePage}/>
               <Route exact path='/admin' component={AdminPage}/>
+              <Route exact path='/review' component={ReviewPage}/>
 
               <Route component={NotFound}/>
             </Switch>
