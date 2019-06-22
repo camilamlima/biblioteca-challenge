@@ -1,0 +1,32 @@
+
+.fundo{
+    background: url("layout.jpg") center no-repeat;
+    height: 80vh;
+    background-size: cover;
+    padding-top: 35px;
+}
+.formulario{
+    font-family: "Calibri", sans-serif
+}
+.form-inline{
+    width: 400px;
+    margin:auto;
+    background-color: white;
+    padding: 20px;
+}
+.form-inline .btn {
+    margin: 15px;
+}
+.form-inline input,.form-inline select{
+    width: 100%;
+    
+}
+
+
+.observacao{
+    display: flex;
+}
+#comentario{
+    margin-left: 18px;
+}
+
