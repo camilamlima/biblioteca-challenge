@@ -6,7 +6,7 @@ const dbConfig = require('./config/database.config.js');
 const appConfig = require('./config/app.config.js');
 const mongoose = require('mongoose');
 
-
+const utils_createUser = require('./app/utils/create_user.js');
 
 // create express app
 const app = express();
@@ -28,6 +28,10 @@ mongoose.connect(dbConfig.url, {
     console.log('Could not connect to the database. Exiting now...', err);
     process.exit();
 });
+
+// Create admin user
+utils_createUser.createAdminUser();
+
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

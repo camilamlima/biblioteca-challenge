@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
-    Admin, Resource, 
-    ListGuesser,EditGuesser
+    Admin, Resource
 } from 'react-admin';
 import simpleRestProvider from 'ra-data-simple-rest';
 import {authProvider, config } from '../helpers';

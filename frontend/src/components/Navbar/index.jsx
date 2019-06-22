@@ -8,7 +8,7 @@ class Navbar extends Component{
         return (
            <header>
                 <div className="navbar">
-                 <img className="rounded" src={logo}/>     
+                 <img className="rounded" src={logo} alt="" />     
                  <div className="title">
                     <h1 className="marketing_brand">BookSuggestion</h1>
                  </div>
